@@ -1,0 +1,12 @@
+= Job Application Project
+
+This is a small project creating a fully automated storage system.
+
+The material flow system (MFS) sends orders to a Device Controller which processes and forwards them to a Device for execution. 
+Each Device asynchronously executes its current order.
+
+An order contains the location (x-coordinate and side) of the source and destination, a unique ID, the priority and sequence for the DC to handle.
+
+== Device Controllers
+
+include::./documentation/sources/simpleDc.part.adoc[]
