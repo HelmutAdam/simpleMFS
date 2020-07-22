@@ -1,5 +1,6 @@
 package com.ssi.application_project;
 
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -12,30 +13,30 @@ import com.google.inject.Key;
 import com.google.inject.name.Names;
 import com.ssi.device.IDevice;
 import com.ssi.device_controller.IDeviceController;
+import com.ssi.device_controller.SimpleDc;
 
 public class MFS {
   private static final Logger LOG = LogManager.getLogger(MFS.class);
   
   public static void main(String[] args) {
 
-    Injector injector = Guice.createInjector(new DeviceModule());
-    Injector injector2 = Guice.createInjector(new DeviceModule());
+    Set<Config> configList = new HashSet<>();
+    configList.add(new Config(SimpleDc.class, "First Device"));
+    configList.add(new Config(SimpleDc.class, "Second Device"));
     
-    IDeviceController deviceController = injector.getInstance(Key.get(IDeviceController.class, Names.named("Simple")));
-    IDeviceController deviceController2 = injector2.getInstance(Key.get(IDeviceController.class, Names.named("Simple")));
+    Injector injector = Guice.createInjector(new DeviceModule(configList));
     
-    IDevice deviceSimple = injector.getInstance(Key.get(IDevice.class, Names.named("Simple")));
-    deviceController.setDevice(deviceSimple);
-    IDevice deviceSimple2 = injector2.getInstance(Key.get(IDevice.class, Names.named("Simple")));
-    deviceController2.setDevice(deviceSimple2);
-    
-    Set<Order> orderSet = new LinkedHashSet<>();
-    fillOrderSet(orderSet);
-    startDeviceControllerWithOrders(deviceController, orderSet);
-    
-    Set<Order> orderSet2 = new LinkedHashSet<>();
-    fillOrderSet(orderSet2);
-    startDeviceControllerWithOrders(deviceController2, orderSet2);
+    Set<IDeviceController> controllers = new HashSet<>();
+    for (Config config : configList) {
+      IDeviceController deviceController = injector.getInstance(Key.get(IDeviceController.class, Names.named(config.getId())));
+      controllers.add(deviceController);
+      IDevice deviceSimple = injector.getInstance(Key.get(IDevice.class, Names.named(config.getId())));
+      deviceController.setDevice(deviceSimple);
+      
+      Set<Order> orderSet = new LinkedHashSet<>();
+      fillOrderSet(orderSet);
+      startDeviceControllerWithOrders(deviceController, orderSet);
+    }
   }
   
   private static void startDeviceControllerWithOrders(IDeviceController dc, Set<Order> orderSet) {

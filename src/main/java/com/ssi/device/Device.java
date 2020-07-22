@@ -19,14 +19,14 @@ public class Device implements IDevice {
   
   private final ExecutorService executorService = Executors.newSingleThreadExecutor();
   private final IDeviceListener deviceListener;
-  private final String deviceName;
+  private final String id;
   
   private Location location;
   private Order currentOrder = null;
   
   @Inject
-  public Device(@Named("DeviceName")String deviceName, IDeviceListener deviceListener) {
-    this.deviceName = deviceName;
+  public Device(@Named("id")String id, IDeviceListener deviceListener) {
+    this.id = id;
     this.deviceListener = deviceListener;
     this.location = new Location(0, Side.ONE);
   }
@@ -79,7 +79,7 @@ public class Device implements IDevice {
 
   @Override
   public String toString() {
-    return deviceName;
+    return id;
   }
 
   @Override
@@ -87,6 +87,31 @@ public class Device implements IDevice {
     if (!executorService.isShutdown()) {
       executorService.shutdown();
     }
+  }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((id == null) ? 0 : id.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Device other = (Device) obj;
+    if (id == null) {
+      if (other.id != null)
+        return false;
+    } else if (!id.equals(other.id))
+      return false;
+    return true;
   }
   
 }

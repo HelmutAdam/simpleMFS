@@ -16,15 +16,15 @@ import com.ssi.device.IDevice;
 
 public class SimpleDc implements IDeviceController, IDeviceListener {
 
-  private final String controllerName;
+  private final String id;
   private final Queue<Order> orderQueue = new LinkedList<>();
   
   private IDevice device;
   private static final Logger LOG = LogManager.getLogger(SimpleDc.class);
   
   @Inject
-  public SimpleDc(@Named("DcName") String controllerName) {
-    this.controllerName = controllerName;
+  public SimpleDc(@Named("id") String id) {
+    this.id = id;
   }
 
   @Override
@@ -52,7 +52,7 @@ public class SimpleDc implements IDeviceController, IDeviceListener {
 
   @Override
   public String toString() {
-    return "SimpleDc " + controllerName;
+    return "SimpleDc " + id;
   }
 
   @Override
@@ -60,6 +60,31 @@ public class SimpleDc implements IDeviceController, IDeviceListener {
     if (device != null) {
       device.shutdown();
     }
+  }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((id == null) ? 0 : id.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    SimpleDc other = (SimpleDc) obj;
+    if (id == null) {
+      if (other.id != null)
+        return false;
+    } else if (!id.equals(other.id))
+      return false;
+    return true;
   }
 
 }
