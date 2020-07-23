@@ -1,4 +1,4 @@
-package com.ssi.application_project;
+package com.ssi;
 
 import java.util.ArrayList;
 import java.util.List;

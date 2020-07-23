@@ -1,4 +1,4 @@
-package com.ssi.application_project;
+package com.ssi;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -8,10 +8,10 @@ import com.google.inject.Key;
 import com.google.inject.PrivateBinder;
 import com.google.inject.Singleton;
 import com.google.inject.name.Names;
+import com.ssi.controller.IDeviceController;
+import com.ssi.controller.IDeviceListener;
 import com.ssi.device.Device;
 import com.ssi.device.IDevice;
-import com.ssi.device_controller.IDeviceController;
-import com.ssi.device_controller.IDeviceListener;
 public class DeviceModule extends AbstractModule{
   
   Set<Config> configSet = new HashSet<>();

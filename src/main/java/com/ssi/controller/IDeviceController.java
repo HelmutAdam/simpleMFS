@@ -1,6 +1,6 @@
-package com.ssi.device_controller;
+package com.ssi.controller;
 
-import com.ssi.application_project.Order;
+import com.ssi.Order;
 import com.ssi.device.IDevice;
 
 public interface IDeviceController {

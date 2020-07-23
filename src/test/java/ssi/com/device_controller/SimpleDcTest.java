@@ -9,9 +9,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.atLeastOnce;
 
-import com.ssi.application_project.Order;
+import com.ssi.Order;
+import com.ssi.controller.SimpleDc;
 import com.ssi.device.IDevice;
-import com.ssi.device_controller.SimpleDc;
 
 public class SimpleDcTest {
 

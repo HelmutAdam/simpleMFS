@@ -6,11 +6,11 @@ import java.util.concurrent.Executors;
 import javax.inject.Named;
 
 import com.google.inject.Inject;
-import com.ssi.application_project.AckType;
-import com.ssi.application_project.Location;
-import com.ssi.application_project.Order;
-import com.ssi.application_project.Side;
-import com.ssi.device_controller.IDeviceListener;
+import com.ssi.AckType;
+import com.ssi.Location;
+import com.ssi.Order;
+import com.ssi.Side;
+import com.ssi.controller.IDeviceListener;
 
 public class Device implements IDevice {
 

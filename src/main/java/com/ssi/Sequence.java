@@ -1,4 +1,4 @@
-package com.ssi.application_project;
+package com.ssi;
 
 public class Sequence {
   private final long seqGroup;

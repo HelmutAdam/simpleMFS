@@ -1,4 +1,4 @@
-package com.ssi.device_controller;
+package com.ssi.controller;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -9,9 +9,9 @@ import javax.inject.Named;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.ssi.application_project.AckType;
-import com.ssi.application_project.Location;
-import com.ssi.application_project.Order;
+import com.ssi.AckType;
+import com.ssi.Location;
+import com.ssi.Order;
 import com.ssi.device.IDevice;
 
 public class SimpleDc implements IDeviceController, IDeviceListener {

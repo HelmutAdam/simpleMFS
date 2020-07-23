@@ -1,4 +1,4 @@
-package com.ssi.application_project;
+package com.ssi;
 
 public interface IOrderStateListener {
   void onDevice(Order order);

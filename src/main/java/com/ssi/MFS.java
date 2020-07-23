@@ -1,4 +1,4 @@
-package com.ssi.application_project;
+package com.ssi;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -11,9 +11,9 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Key;
 import com.google.inject.name.Names;
+import com.ssi.controller.IDeviceController;
+import com.ssi.controller.SimpleDc;
 import com.ssi.device.IDevice;
-import com.ssi.device_controller.IDeviceController;
-import com.ssi.device_controller.SimpleDc;
 
 public class MFS {
   private static final Logger LOG = LogManager.getLogger(MFS.class);
