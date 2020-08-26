@@ -1,3 +1,6 @@
 === SimpleDc
 
-A simple Device Controller using FIFO to process incoming orders.
+A simple Device Controller using FIFO to process incoming orders. +
+For choosing the next order the priority and sequence parameters are not taken into consideration, 
+it solely depends on the order input sequence. +
+Adding an order starts the connected device. If a device error occurs a log message is created, no further actions are taken.
