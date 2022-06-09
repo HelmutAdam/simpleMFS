@@ -19,7 +19,7 @@ public class Location {
 
   @Override
   public String toString() {
-    return "Location x=" + x + ", side=" + side;
+    return String.format("Location{x=%d, side=%s}",x,side);
   }
   
 }

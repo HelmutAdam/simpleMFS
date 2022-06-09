@@ -19,7 +19,7 @@ public class Sequence {
 
   @Override
   public String toString() {
-    return "Sequence seqGroup=" + seqGroup + ", batch=" + batch;
+    return String.format("Sequence{seqGroup=%d, batch=%d}", seqGroup, batch);
   }
   
 }
