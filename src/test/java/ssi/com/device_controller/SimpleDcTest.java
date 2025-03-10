@@ -1,7 +1,5 @@
 package ssi.com.device_controller;
 
-import org.junit.Before;
-import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -9,9 +7,14 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.atLeastOnce;
 
+
+import org.junit.Before;
+import org.junit.Test;
+
 import com.ssi.Order;
 import com.ssi.controller.SimpleDc;
 import com.ssi.device.IDevice;
+
 
 public class SimpleDcTest {
 
@@ -32,7 +35,7 @@ public class SimpleDcTest {
   }
   
   @Test
-  public void notfifyDeviceOnNewOrder() {
+  public void notifyDeviceOnNewOrder() {
     simpleDc.addOrder(mock(Order.class));
     verify(device, atLeastOnce()).trigger();
   }

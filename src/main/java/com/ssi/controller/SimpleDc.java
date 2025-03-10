@@ -3,12 +3,12 @@ package com.ssi.controller;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import com.ssi.AckType;
 import com.ssi.Location;
 import com.ssi.Order;

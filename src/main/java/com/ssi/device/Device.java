@@ -3,9 +3,9 @@ package com.ssi.device;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import javax.inject.Named;
 
 import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import com.ssi.AckType;
 import com.ssi.Location;
 import com.ssi.Order;
